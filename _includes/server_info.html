@@ -18,7 +18,7 @@
 </div>
 <script>
     //TODO: Support multiple addresses. Shouldn't be too hard but it's unimportant right now.
-    let addresses = {{ page.server_addresses | jsonify }}; {%- comment -%} This address is filled in by Liquid. {%- endcomment -%}
+    let addresses = {{ page.server_addresses | jsonify }}; {% comment %} This address is filled in by Liquid. {%- endcomment -%}
     if (!addresses)
         throw new Error(`Server address for {{ page.title }} was not set in the front matter!`);
 
