@@ -18,7 +18,8 @@ layout: default
 
         <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-1 row-cols-sm-1 row-cols-1">
 
-            {%- for server in site.servers -%}
+            {%- assign servers = site.servers | sort: 'sort_priority', 'last' -%}
+            {%- for server in servers -%}
             
                 {% assign server_name = server.id | split: "/" | last %}
 

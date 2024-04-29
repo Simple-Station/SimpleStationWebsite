@@ -2,24 +2,36 @@
 permalink: /404.html
 layout: default
 ---
+<link id="random-theme" rel="stylesheet" href="">
+<div class="container text-center">
+  <div class="row">
+      <div class="col">
+          <h1 class="page-header">
+              404
+          </h1>
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <div class="container-fluid ss-bg-bg-alt">
+              <p role="alert">
+                  If this was supposed to be an actual page, make sure you let us know in the Discord!
+              </p>
+              <p role="alert">
+                  Otherwise, please enjoy this sloth from my personal collection. We have lots!
+              </p>
+          </div>
 
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+          <img id="404Sloths" class="img-fluid" data-randomimagepath="sloths">
+      </div>
+  </div>
 </div>
+
+<script>
+  {% comment %} TODO: Find some more elegant way to do this besides making directory-scoped variables for all the images we want. {%- endcomment -%}
+
+  const sloths = {{ site.static_files |  where: 'is_sloth', true | map: "path" | jsonify }}
+
+  const themes = {{ site.static_files |  where: 'is_server_theme', true | map: "path" | jsonify }}
+
+  document.getElementById("404Sloths").src = sloths[Math.floor(Math.random() * sloths.length)];
+
+  document.getElementById('random-theme').href = themes[Math.floor(Math.random() * themes.length)];
+</script>

@@ -5,5 +5,6 @@
     --color-background: #07090e;
     --color-background-alt: #224453;
     --color-text: #d8f6fa;
-    --font-default: Azonix, Impact;
+    --font-default: Tahoma;
+    --font-accent: Azonix, Tahoma;
 }

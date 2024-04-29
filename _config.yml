@@ -75,6 +75,14 @@ exclude:
 # Defaults values for the front matter of pages defined by scope.
 defaults:
   - scope:
+      path: "assets/img/sloths"
+    values:
+      is_sloth: true
+  - scope:
+      path: "assets/css/servers"
+    values:
+      is_server_theme: true
+  - scope:
       path: "assets/fonts"
     values:
       is_font: true
