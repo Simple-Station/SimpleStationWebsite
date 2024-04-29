@@ -1,0 +1,9 @@
+:root {
+    --color-primary: rgb(249, 206, 255);
+    --color-secondary: rgb(194, 15, 84);
+    --color-accent: rgb(79, 176, 255);
+    --color-background: #352f28;
+    --color-background-alt: #2a251f; 
+    --color-text: #b983c0;
+    --font-default: "Gill Sans";
+}

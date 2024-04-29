@@ -1,0 +1,9 @@
+:root {
+    --color-primary: #245;
+    --color-secondary: #eee;
+    --color-accent: #ff0;
+    --color-background: #bb2;
+    --color-background-alt: #aa1;
+    --color-text: #bb2;
+    --font-default: "Times New Roman";
+}

@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- comment -%} Gets the theme corresponding to the current server. It's not a big deal if this doesn't find anything, it'll always fallback to site-wide. {%- endcomment -%}
+<link rel="stylesheet" href="/assets/css{{ page.id }}.css">
+{% if page.simple_page %}
+    <h1 class="container-fluid text-center ss-bg-bg-alt pb-2 mb-0">
+        {{ page.title }}
+    </h1>
+    <div class="container-xxl text-center col-xl-6 col-lg-7 col-12 me-auto mb-5">
+        {{ content | markdownify }}
+    </div>
+{% else %}
+    {{ content }}
+{% endif %}

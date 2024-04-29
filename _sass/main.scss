@@ -1,0 +1,164 @@
+@import "vars";
+// @import "fonts";
+
+// Default colour variables, for SimpleStation
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-accent: var(--color-accent);
+$color-background: var(--color-background);
+$color-background-alt: var(--color-background-alt);
+$color-text: var(--color-text);
+$font-default: var(--font-default);
+
+body {
+    background-color: $color-background;
+    font-family: $font-default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr {
+    color: $color-primary;
+}
+
+hr,
+vr {
+    color: $color-accent;
+}
+
+p {
+    color: $color-text;
+}
+
+.ss-color-primary {
+    color: $color-primary;
+}
+
+.ss-color-secondary {
+    color: $color-secondary;
+}
+
+.ss-color-accent {
+    color: $color-accent;
+}
+
+.ss-bg-primary {
+    background-color: $color-primary;
+}
+
+.ss-bg-secondary {
+    background-color: $color-secondary;
+}
+
+.ss-bg-bg {
+    background-color: $color-background;
+}
+
+.ss-bg-bg-alt {
+    background-color: $color-background-alt;
+}
+
+.ss-border-primary {
+    border-color: rgba(var(--color-primary), 1) !important;
+}
+
+.ss-border-secondary {
+    border-color: rgba(var(--color-secondary), 1) !important;
+}
+
+.ss-border-accent {
+    border-color: rgba(var(--color-accent), 1) !important;
+}
+
+.ss-border-bg {
+    border-color: rgba(var(--color-background), 1) !important;
+}
+
+.ss-border-bg-alt {
+    border-color: rgba(var(--color-background-alt), 1) !important;
+}
+
+.ss-btn-primary {
+    --bs-btn-color: var(--color-primary);
+    --bs-btn-bg: var(--color-background-alt);
+    --bs-btn-border-color: var(--color-accent);
+    --bs-btn-hover-color: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-accent);
+    --bs-btn-hover-border-color: var(--color-accent);
+    --bs-btn-focus-shadow-rgb: 0 0 0;
+    --bs-btn-active-color: var(--color-secondary);
+    --bs-btn-active-bg: var(--color-primary);
+    --bs-btn-active-border-color: var(--color-accent);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--color-primary);
+    --bs-btn-disabled-bg: var(--color-background-alt);
+    --bs-btn-disabled-border-color: var(--color-background-alt);
+}
+
+.ss-btn-primary {
+    color: $color-primary;
+    background-color: $color-background-alt;
+    border-color: $color-accent;
+    :hover {
+        color: $color-primary;
+        background-color: $color-accent;
+        border-color: $color-accent;
+    }
+    :focus {
+        color: $color-primary;
+        background-color: $color-background-alt;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 0.25rem rgba($color-background, 0.5);
+    }
+    :active {
+        color: $color-secondary;
+        background-color: $color-primary;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 0.25rem rgba($color-background, 0.5);
+    }
+    :disabled {
+        color: $color-primary;
+        background-color: $color-background-alt;
+        border-color: $color-background-alt;
+    }
+}
+
+.server-banner {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 45%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    // background-color: #222;
+}
+
+
+.server-description {
+    margin: 5px;
+    font-size: 20px;
+    // font-weight: bold;
+    text-align: start;
+    border-color: $color-accent !important;
+}
+
+
+.server-column {
+    // background-color: #222;
+    padding: 1%;
+    // border: 0px;
+}
+
+
+.character-image {
+    padding: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
