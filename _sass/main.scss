@@ -9,6 +9,7 @@ $color-background: var(--color-background);
 $color-background-alt: var(--color-background-alt);
 $color-text: var(--color-text);
 $font-default: var(--font-default);
+$font-accent: var(--font-accent);
 
 body {
     background-color: $color-background;
@@ -23,6 +24,7 @@ h5,
 h6,
 hr {
     color: $color-primary;
+    font-family: $font-accent;
 }
 
 hr,

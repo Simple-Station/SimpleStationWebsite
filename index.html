@@ -17,7 +17,31 @@ layout: default
         </div>
 
         <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-1 row-cols-sm-1 row-cols-1">
-            <!-- TODO: Make this auto fill using Liquid. -->
+
+            {%- for server in site.servers -%}
+            
+                {% assign server_name = server.id | split: "/" | last %}
+
+                <div class="col server-column">
+                    <a href=" {{- server.url -}} ">
+                        <div class="img-fluid server-banner" style="background-image: url(/assets/img/servers/ {{- server_name -}} /banner.png);"></div>
+                    </a>
+
+                    <button class="btn btn-secondary d-lg-none mb-3 btn-lg w-75 shadow"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="# {{- server_name -}} "
+                        aria-expanded="false"
+                        aria-controls=" {{- server_name -}} ">
+                    </button>
+
+                    <div id=" {{- server_name -}} " class="collapse d-lg-block">
+                        <p class="p-3 border-bottom border-end rounded rounded-5 server-description ss-bg-bg-alt shadow"> {{- server.server_description | rstrip |  newline_to_br | strip_newlines -}} </p>
+                    </div>
+                </div>
+                
+            {%- endfor -%}
+            
         </div>
     </div>
 </div>

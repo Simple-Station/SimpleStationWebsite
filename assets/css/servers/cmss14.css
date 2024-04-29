@@ -5,5 +5,6 @@
     --color-background: #2a3705;
     --color-background-alt: #998851;
     --color-text: #F1F2EE;
-    --font-default: RumbleTumble, Impact;
+    --font-default: Arial;
+    --font-accent: RumbleTumble;
 }

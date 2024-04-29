@@ -1,4 +1,6 @@
 {
     "liveServer.settings.root": "/_site/",
     "liveServer.settings.port": 4000,
+    "vs-browser.reload.onSave": true,
+    "vs-browser.url": "http://localhost:4000",
 }
