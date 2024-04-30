@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "pranaygp.vscode-css-peek",
+        "vincaslt.highlight-matching-tag",
+        "ecmel.vscode-html-css",
+        "htmlhint.vscode-htmlhint",
+        "zignd.html-css-class-completion",
+        "ginfuru.ginfuru-vscode-jekyll-syntax",
+        "sissel.shopify-liquid",
+        "redhat.vscode-yaml",
+        "dotjoshjohnson.xml",
+        "phu1237.vs-browser",
+        "anseki.vscode-color"
+    ]
+}
