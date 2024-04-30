@@ -22,7 +22,7 @@
     if (!addresses)
         throw new Error(`Server address for {{ page.title }} was not set in the front matter!`);
 
-    fetch(`http://${addresses[0]}/info`)
+    fetch(`https://${addresses[0]}/info`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,7 +45,7 @@
             });
         });
 
-    let rawStatus = fetch(`http://${addresses[0]}/status`)
+    fetch(`https://${addresses[0]}/status`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
