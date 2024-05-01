@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Start Debug Site",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "bundle exec jekyll serve -l",
+        },
+        {
+            "name": "Start Production Site",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "bundle exec jekyll build",
+            "env": {
+                "JEKYLL_ENV": "production",
+            },
+        }
+    ]
+}

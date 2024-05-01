@@ -1,13 +1,16 @@
 <!-- In 'desktop' view, we have a full footer -->
-<footer class="container-fluid ss-bg-bg-alt fixed-bottom d-none d-md-block">
+<!-- A gap to space out the bottom of the page -->
+<div style="height: 16px; width: 100%;"></div>
+
+<footer class="container-fluid ss-bg-bg-alt fixed-bottom d-none d-lg-block">
     <div class="container-fluid">
         <hr class="border-3 m-0">
     </div>
 
     <div class="row align-items-center overflow-x-auto overflow-y-hidden text-nowrap">
-        <div class="col-1 float-start ms-3 d-none d-lg-block">
-            <a href="/index.html">
-                <img src="/assets/img/banner.png" alt="SimpleStation Banner" class="img-fluid">
+        <div class="col-1 float-start ms-3">
+            <a href=" {%- link index.html -%} ">
+                <img src=" {%- link assets/img/banner.png -%} " alt="SimpleStation Banner" class="img-fluid">
             </a>
         </div>
 
@@ -15,7 +18,7 @@
             <div class="text-end px-2 pb-1 mt-3 container-fluid">
                 <p class="m-0">
                     SimpleStation is managed by Pspritechologist and DEATHB4DEFEAT, who may be contacted on
-                    the <a href="https://discord.com/invite/49KeKwXc8g" class="text-reset">SimpleStation Discord
+                    the <a href=" {{- site.discord_link -}} " class="text-reset">SimpleStation Discord
                         server.</a>
                 </p>
                 <p class="m-0 small">
@@ -28,16 +31,16 @@
 </footer>
 
 <!-- In 'mobile' view, we simply have a 'main page' button, and a 'Discord' button -->
-<footer class="m-0 p-2 container-fluid text-center row fixed-bottom d-md-none justify-content-between">
+<footer class="m-0 p-2 container-fluid text-center row fixed-bottom d-lg-none justify-content-between" style="pointer-events: none;">
     <div class="col">
-        <button type="button" class="btn ss-btn-primary m-0 p-0" onclick="window.location.href='/index.html'">
-            <img height="64" src="/assets/img/icon.png" alt="SimpleStation Icon" class="m-0 p-0">
+        <button type="button" class="btn ss-btn-primary m-0 p-0" onclick="window.location.href=' {%- link index.html -%} '" style="pointer-events: all;">
+            <img height="64" src=" {%- link assets/img/icon.png -%} " alt="SimpleStation Icon" class="m-0 p-0">
         </button>
     </div>
 
     <div class="col">
-        <button type="button" class="btn m-0 p-0" onclick="window.location.href='https://discord.com/invite/49KeKwXc8g'">
-            <img height="64" src="https://cdn.simpleicons.org/discord" alt="Discord icon" class="m-0 p-0">
+        <button type="button" class="btn m-0 p-0" onclick="window.location.href=' {{- site.discord_link -}} '" style="pointer-events: all;">
+            <img height="64" src=" {{- site.icon_domain -}} /discord" alt="Discord icon" class="m-0 p-0">
         </button>
     </div>
 </footer>

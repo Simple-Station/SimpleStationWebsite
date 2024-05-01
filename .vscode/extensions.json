@@ -1,15 +1,18 @@
 {
     "recommendations": [
-        "pranaygp.vscode-css-peek",
         "vincaslt.highlight-matching-tag",
-        "ecmel.vscode-html-css",
-        "htmlhint.vscode-htmlhint",
         "zignd.html-css-class-completion",
-        "ginfuru.ginfuru-vscode-jekyll-syntax",
         "sissel.shopify-liquid",
         "redhat.vscode-yaml",
         "dotjoshjohnson.xml",
         "phu1237.vs-browser",
-        "anseki.vscode-color"
+        "anseki.vscode-color",
+        "streetsidesoftware.code-spell-checker",
+        "formulahendry.auto-rename-tag",
+        "zainchen.json",
+        "yzhang.markdown-all-in-one",
+        "simonsiefke.svg-preview",
+        "redhat.vscode-xml",
+        "pranaygp.vscode-css-peek"
     ]
 }
