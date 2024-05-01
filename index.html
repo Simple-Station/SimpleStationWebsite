@@ -31,12 +31,12 @@ layout: default
                     <button class="btn btn-secondary d-lg-none mb-3 btn-lg w-75 shadow"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="# {{- server_name -}} "
+                        data-bs-target="# {{- server_name -}} -desc"
                         aria-expanded="false"
-                        aria-controls=" {{- server_name -}} ">
+                        aria-controls=" {{- server_name -}} -desc">
                     </button>
 
-                    <div id=" {{- server_name -}} " class="collapse d-lg-block">
+                    <div id=" {{- server_name -}} -desc" class="collapse d-lg-block">
                         <p class="p-3 border-bottom border-end rounded rounded-5 server-description ss-bg-bg-alt shadow"> {{- server.server_description | rstrip |  newline_to_br | strip_newlines -}} </p>
                     </div>
                 </div>

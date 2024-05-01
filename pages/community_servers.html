@@ -1,0 +1,71 @@
+---
+---
+
+<div class="container container-fluid">
+    <div class="row row-cols-3">
+
+        {% for server in site.data.community_servers %}
+
+            <div class="col">
+                <div class="card shadow-lg">
+                    <h5 class="card-header text-start"> {{- server.name -}} </h5>
+                    {% comment %} TODO: This is too hardcoded and doesn't support SVGs. {% endcomment %}
+                    <img src=" /assets/img/servers/community_servers/ {{- server.name | downcase | remove: " " -}} .png" class="card-img-top" style="aspect-ratio: 1.5; object-fit: contain;" alt="{{ server.name }} server icon ">
+                    <div class="card-body">
+
+                        <p class="card-text" style="color: var(--color-primary);"> {{- server.description | newline_to_br | strip_newlines -}} </p>
+
+                        {%- assign address_count = server.addresses | size -%}
+                        {% if address_count > 1 %}
+                            <nav class="nav-tabs nav">
+                                {% for address in server.addresses %}
+                                    <button data-bs-toggle="tab" type="button" data-bs-target="#community-server- {{- server.name | remove: " " -}} -tab-pane- {{- forloop.index -}} " class="ps-2 pe-3 pb-0 pt-1 nav-link {% if forloop.first %} active {%- endif -%} "> {{- forloop.index -}} </button>
+                                {% endfor %}
+                            </nav>
+                        {% endif %}
+                        
+                        {% comment %} TODO: Fill in this information with a script. {% endcomment %}
+                        <div class="tab-content">
+                            {% for address in server.addresses %}
+                                <table class="table-borderless tab-pane {% if forloop.first %} show active {%- endif -%} " id="community-server- {{- server.name | remove: " " -}} -tab-pane- {{- forloop.index -}} " tabindex="0">
+                                    <tr>
+                                        <th>Name:&nbsp&nbsp</th>
+                                        <td> {{- server.name -}} - {{- forloop.index -}} </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>Address:&nbsp&nbsp</th>
+                                        <td><a href="ss14:// {{- address -}} "> {{- address -}} </a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Players:&nbsp&nbsp</th>
+                                        <td> 55/32 </td>
+                                    </tr>
+                                </table>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    {%- assign link_count = server.links | size -%}
+                    {% unless link_count < 1 %}
+                        <div class="card-footer">
+
+                            {% for link_data in server.links %}
+                                <a href=" {{- link_data.link -}} ">
+                                    {% assign link_name = link_data.tooltip | default: link_data.name | capitalize %}
+                                    <img src=" {%- insert_icon link_data.name black -%} " style="max-width: 24px;" alt=" {{- link_name -}} " title=" {{- link_name -}} ">
+                                </a>
+                            {% endfor %}
+
+                        </div>
+                    {% endunless %} 
+                    
+                </div>
+            </div>
+            
+        {% endfor %}
+
+    </div>
+</div>

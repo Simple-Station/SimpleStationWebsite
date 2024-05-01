@@ -30,7 +30,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 discord_link: https://discord.com/invite/49KeKwXc8g
-icon_domain: https://cdn.simpleicons.org
+icon_domain: https://cdn.simpleicons.org/{icon}/
 
 # Build settings
 # theme: minima
@@ -90,16 +90,20 @@ defaults:
     values:
       is_font: true
   - scope:
+      path: "assets/img/icons"
+    values:
+      is_icon: true
+  - scope:
       path: ""
       type: "servers"
     values:
       layout: "server"
       has_character_sheets: false
       simple_page: true
-  # - scope: # CSS files were getting full HTML pages around them :roll_eyes:
-  #     path: ""
-  #   values:
-  #     layout: "default"
+  - scope:
+      path: "pages"
+    values:
+      layout: "default"
 
 # Collections.
 collections:

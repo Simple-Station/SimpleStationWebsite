@@ -1,0 +1,51 @@
+- name: Caldera
+  description: |
+    What's happening you mad lads??
+    uwu mommy
+  links:
+    - name: discord
+      link: https://discord.gg/8vJjJ2Q
+    - name: website
+      link: https://calderasite.gov
+      tooltip: Caldera website
+    - name: website
+      link: https://cald-erawiki.wik
+      tooltip: Caldera wiki
+    - name: github
+      link: https://github.com
+    - name: twitter
+      link: https://twitter.com
+    - name: reddit
+      link: https://reddit.com
+  addresses:
+    - Caldera-Nuclear.SimpleStation.org
+    - Caldera-Atomic.SimpleStation.org
+    - Caldera-Plasma.SimpleStation.org
+    - Caldera-Quantum.SimpleStation.org
+
+- name: SimpleStation
+  description: |
+    A simple station for simple people.
+  links:
+    - name: facebook
+      link: https://facebook.com
+    - name: twitter
+      link: https://twitter.com
+    - name: youtube
+      link: https://youtube.com
+    - name: website
+      link: https://simplestation.org
+      tooltip: SimpleStation website
+    - name: email
+      link: "mailto: parkstation@simplestation.org"
+      tooltip: SimpleStation email address
+  addresses:
+    - SimpleStation-1.SimpleStation.org
+
+- name: Space Station 13
+  description: |
+    The original Space Station 13.
+  links:
+  addresses:
+    - byond.spacestation13.com
+    - byond.spacestation13.org
