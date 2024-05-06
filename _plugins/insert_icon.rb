@@ -41,7 +41,7 @@ module Jekyll
                 response = Net::HTTP.get_response(URI(domain))
 
                 if response.code == "404"
-                    raise "Could not find a local backup for non-online avaliable icon '#{text}'! Ensure that the icon exists and is tagged as '#{ICON_TAG}'."
+                    raise "Could not find a local backup for non-online avaliable icon '#{domain}'! Ensure that the icon exists and is tagged as '#{ICON_TAG}'."
                 end
             end
             
