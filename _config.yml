@@ -73,6 +73,7 @@ jekyll-minifier:
 
 exclude:
   - assets/js/bootstrap-5.3.3-dist # Included from a cdn.
+  - assets/css/bootstrap-5.3.3-dist # Included from a cdn.
 
 # Front matter defaults.
 # Defaults values for the front matter of pages defined by scope.

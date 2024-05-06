@@ -4,13 +4,17 @@
     //"vs-browser.reload.onSave": true,
     "vs-browser.url": "http://localhost:4000",
     "files.associations": {
-        "*.json": "json",
-        "*.yaml": "yaml",
-        "*.md": "markdown",
-        "*.html": "liquid",
-        "*.js": "liquid-javascript",
-        "*.css": "liquid-css",
-        "*.scss": "liquid-scss",
+      "*.json": "json",
+      "*.yaml": "yaml",
+      "*.md": "markdown",
+      "*.html": "liquid",
+      "*.js": "liquid-javascript",
+      "*.css": "liquid-css",
+      "*.scss": "liquid-scss",
+      // The following don't seem to worK?
+      "_site/**/*.html": "html",
+      "_site/**/*.css": "css",
+      "_site/**/*.js": "javascript"
     },
     "html-css-class-completion.includeGlobPattern": "_site/**/*.{css,html}",
     "html-css-class-completion.CSSLanguages": [
@@ -22,17 +26,7 @@
     ],
     "html-css-class-completion.HTMLLanguages": [
       "html",
-      "vue",
-      "razor",
-      "blade",
-      "handlebars",
-      "twig",
-      "django-html",
-      "php",
       "markdown",
-      "erb",
-      "ejs",
-      "svelte",
       "liquid",
     ],
     "html-css-class-completion.JavaScriptLanguages": [
@@ -43,28 +37,9 @@
     ],
     "cssPeek.peekFromLanguages": [
         "html",
-        "django-html",
-        "laravel-blade",
-        "razor",
-        "vue",
-        "blade",
-        "pug",
-        "jade",
-        "handlebars",
-        "php",
-        "twig",
         "md",
-        "nunjucks",
         "javascript",
-        "javascriptreact",
-        "erb",
         "typescript",
-        "typescriptreact",
-        "HTML (Eex)",
-        "html-eex",
-        "ejs",
-        "hbs",
-        "svelte",
         "liquid",
         "liquid-css",
         "liquid-scss",
@@ -77,7 +52,18 @@
         // We use the build site since it's far more reliable (not everything will exist in the source) but it *does* mean you need to rebuild while modifying.
         //! Have Jekyll watching the directory (either with build or serve) so that these reload automatically.
         // This works fine on my PC but if you run into awkwardness with it let me know and we'll consider changing the default.
-        "assets/**",
+        // "assets/**",
+        
+        // This is non-ideal, but bootstrap isn't in the _site directory anymore, the remote below doesn't seem to work.
+        "assets/servers/**",
+        "assets/styles.scss",
         "_sass/**",
       ],
+      "css.styleSheets": [
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      ],
+      // "[liquid]": {
+      //   "editor.defaultFormatter": "sissel.shopify-liquid",
+      //   "editor.formatOnSave": true
+      // },
 }
