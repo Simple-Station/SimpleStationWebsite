@@ -1,71 +1,53 @@
 ---
 ---
 
-<div class="container container-fluid">
-    <div class="row row-cols-3">
+<style>
+  .item { display: inline-block; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+  
+  .item { max-width: 100%; -moz-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s; }
+  
+  .item:hover { -moz-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); }
+  
+  .masonry { margin: 1.5em 0; padding: 0; -moz-column-gap: 1.5em; -webkit-column-gap: 1.5em; column-gap: 1.5em; }
 
-        {% for server in site.data.community_servers %}
+  @media only screen and (min-width: 768px) 
+    {.masonry { -moz-column-count: 2; -webkit-column-count: 2; column-count: 2; } }
 
-            <div class="col">
-                <div class="card shadow-lg">
-                    <h5 class="card-header text-start"> {{- server.name -}} </h5>
-                    {% comment %} TODO: This is too hardcoded and doesn't support SVGs. {% endcomment %}
-                    <img src=" /assets/img/servers/community_servers/ {{- server.name | downcase | remove: " " -}} .png" class="card-img-top" style="aspect-ratio: 1.5; object-fit: contain;" alt="{{ server.name }} server icon ">
-                    <div class="card-body">
+  @media only screen and (min-width: 992px) 
+    {.masonry { -moz-column-count: 3; -webkit-column-count: 3; column-count: 3; } }
 
-                        <p class="card-text" style="color: var(--color-primary);"> {{- server.description | newline_to_br | strip_newlines -}} </p>
+  @media only screen and (min-width: 1400px) 
+    {.masonry { -moz-column-count: 4; -webkit-column-count: 4; column-count: 4; } }
+</style>
 
-                        {%- assign address_count = server.addresses | size -%}
-                        {% if address_count > 1 %}
-                            <nav class="nav-tabs nav">
-                                {% for address in server.addresses %}
-                                    <button data-bs-toggle="tab" type="button" data-bs-target="#community-server- {{- server.name | remove: " " -}} -tab-pane- {{- forloop.index -}} " class="ps-2 pe-3 pb-0 pt-1 nav-link {% if forloop.first %} active {%- endif -%} "> {{- forloop.index -}} </button>
-                                {% endfor %}
-                            </nav>
-                        {% endif %}
-                        
-                        {% comment %} TODO: Fill in this information with a script. {% endcomment %}
-                        <div class="tab-content">
-                            {% for address in server.addresses %}
-                                <table class="table-borderless tab-pane {% if forloop.first %} show active {%- endif -%} " id="community-server- {{- server.name | remove: " " -}} -tab-pane- {{- forloop.index -}} " tabindex="0">
-                                    <tr>
-                                        <th>Name:&nbsp&nbsp</th>
-                                        <td> {{- server.name -}} - {{- forloop.index -}} </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <th>Address:&nbsp&nbsp</th>
-                                        <td><a href="ss14:// {{- address -}} "> {{- address -}} </a></td>
-                                    </tr>
+<div class="container container-fluid wrapper">
 
-                                    <tr>
-                                        <th>Players:&nbsp&nbsp</th>
-                                        <td> 55/32 </td>
-                                    </tr>
-                                </table>
-                            {% endfor %}
-                        </div>
+  <div class="d-inline-block container-fluid">
+    <h1 class="display-1 text-center">
+      Community Servers
+    </h1>
+    <button class="btn btn-primary float-end" type="button">
+      Uwu
+    </button>
+  </div>
 
-                    </div>
+  <div class="">
 
-                    {%- assign link_count = server.links | size -%}
-                    {% unless link_count < 1 %}
-                        <div class="card-footer">
+    {% comment %} <div class="d-none d-lg-block col order-first mx-2 mb-5" style="background-size: cover; background-image: url(/assets/img/spacent-bg.jpg); "></div>
+    <div class="d-none d-lg-block col order-last mx-2 mb-5" style="background-size: cover; background-image: url(/assets/img/spacent-bg.jpg); "></div> {% endcomment %}
 
-                            {% for link_data in server.links %}
-                                <a href=" {{- link_data.link -}} ">
-                                    {% assign link_name = link_data.tooltip | default: link_data.name | capitalize %}
-                                    <img src=" {%- insert_icon link_data.name black -%} " style="max-width: 24px;" alt=" {{- link_name -}} " title=" {{- link_name -}} ">
-                                </a>
-                            {% endfor %}
+    <div class="masonry">
 
-                        </div>
-                    {% endunless %} 
-                    
-                </div>
-            </div>
-            
-        {% endfor %}
+      {%- for server in site.data.community_servers %}
+
+        <div class="item">
+          {% assign server_image = server.image | default: "/assets/img/banner.png" %}
+          {% include server_info_card.html %}  
+
+        </div>
+
+      {% endfor %}
 
     </div>
+  </div>
 </div>

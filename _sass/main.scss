@@ -14,6 +14,7 @@ $font-accent: var(--font-accent);
 body {
     background-color: $color-background;
     font-family: $font-default;
+    color: $color-text;
 }
 
 h1,
@@ -28,7 +29,7 @@ hr {
 }
 
 hr,
-vr {
+.vr {
     color: $color-accent;
 }
 

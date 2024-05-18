@@ -1,0 +1,164 @@
+<style>
+  .server-info-card-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted black; }
+
+  .server-info-card-tooltip .server-info-card-tooltip-text { visibility: hidden; width: 200px; background-color: var(--color-background); color: #fff; text-align: center; padding: 5px; border-radius: 6px; bottom: 100%; left: 50%; margin-left: -120px; position: absolute; }
+
+  .server-info-card-tooltip:hover .server-info-card-tooltip-text { visibility: visible; }
+</style>
+
+{% comment %} INFO: Set up our variables {% endcomment %}
+
+{%- assign server_name = server_name | default: server.name -%}
+{%- assign server_addresses = server_address | default: server.addresses -%}
+{%- assign server_links = server_links | default: server.links -%}
+{%- assign server_image = server_image | default: server.image -%}
+{%- assign server_description = server_description | default: server.description -%}
+{%- assign server_colors = server_colors | default: server.colors -%}
+
+{%- assign server_id = server_name | remove: " " -%}
+
+<div id="server-info-card- {{- server_id -}} "
+		class="card border-black border-4 shadow-lg rounded-4 mt-3"
+		style="color: {{ server_colors.text | default: "var(--color-text)" }} ; background-image: linear-gradient( {{- server_colors.background | default: "var(--color-primary)" -}} , {{ server_colors.background | default: "var(--color-primary)" -}} , var(--color-secondary)) ; -webkit-text-stroke: 0px white">
+    <h5 class="card-header text-start">
+      {{ server_name }}
+    </h5>
+
+    {% comment %} TODO: Ensure this image is valid on compilation. {% endcomment -%}
+    {%- if server_image -%}
+    <img
+      src=" {{- server_image -}} "
+      class="card-img-top px-2"
+      style="aspect-ratio: 2.7; object-fit: contain;"
+      alt=" {{- server_name }} server icon ">
+    {%- endif %}
+    <div class="card-body">
+
+      {% if server_description -%}
+      <p class="card-text" style="color: {{- server_colors.text -}} ;">
+        {{ server_description | newline_to_br | strip_newlines }}
+      </p>
+      {%- endif %}
+
+      {%- assign address_count = server_addresses | size -%}
+
+      {%- if address_count > 1 %}
+
+        <nav class="nav-tabs nav">
+          {%- for address in server_addresses %}
+            <button
+              disabled
+              data-bs-toggle="tab"
+              type="button"
+              id="server-info-card- {{- server_id -}} -tab- {{- forloop.index0 -}} "
+              data-bs-target="#server-info-card- {{- server_id -}} -tab-pane- {{- forloop.index0 -}} "
+              class="ps-2 pe-3 pb-0 pt-1 nav-link {% if forloop.first %} active {%- endif -%} ">
+
+              {{- forloop.index0 -}}
+
+            </button>
+          {% endfor %}
+        </nav>
+				
+      {% endif %}
+
+      <div class="tab-content" style="color: #111f1f;">
+        {% for address in server_addresses %}
+          <table
+            class="table-borderless tab-pane {% if forloop.first -%} show active {%- endif -%} "
+            id="server-info-card- {{- server_id -}} -tab-pane- {{- forloop.index0 -}} "
+            tabindex="0">
+            <tr>
+              <th>Name:&nbsp;&nbsp;</th>
+              <td>
+                <div class="server-info-card-tooltip">
+                  <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -name"> Placeholder Name </span>
+                  <span id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -description" class="server-info-card-tooltip-text">...</span>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Address:&nbsp;&nbsp;</th>
+              <td>
+                <a href="ss14:// {{- address -}} ">
+                  <span class="text-break"> {{- address -}} </span>
+                </a>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Players:&nbsp;&nbsp;</th>
+              <td>
+                <div class="badge bg-dark">
+                  <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -players"> 00 / 00 </span>
+                </div>
+              </td>
+            </tr>
+
+          </table>
+
+        {%- endfor %}
+
+      </div>
+
+    </div>
+
+    {%- assign link_count = server_links | size -%}
+
+    {% unless link_count < 1 %}
+
+      <div class="card-footer">
+
+        {%- for link_data in server_links %}
+
+          <p style="display: inline;"></p>
+          <a href=" {{- link_data.link -}} ">
+            {% assign link_name = link_data.tooltip | default: link_data.name | capitalize %}
+            <img
+              src=" {%- insert_icon link_data.name black -%} "
+              style="max-width: 24px;"
+              alt=" {{- link_name -}} "
+              title=" {{- link_name -}} ">
+          </a>
+
+        {% endfor %}
+
+      </div>
+
+    {% endunless %}
+
+</div>
+
+<script src="/assets/js/server_info.js"></script>
+<script>
+  async function updateServerInfo(id, serverAddresses) {
+    serverAddresses.forEach(async (serverAddress, i) => {
+      const serverInfo = await getServerInfo(serverAddress);
+
+      const nameElement = document.getElementById(`server-info-card-${id}-${i}-name`);
+      const descriptionElement = document.getElementById(`server-info-card-${id}-${i}-description`);
+      const playersElement = document.getElementById(`server-info-card-${id}-${i}-players`);
+
+      nameElement.classList.remove("placeholder", "placeholder-wave");
+      playersElement.classList.remove("placeholder", "placeholder-wave");
+
+      nameElement.innerText = serverInfo.name;
+      descriptionElement.innerText = serverInfo.desc;
+      playersElement.innerText = `${serverInfo.players} / ${serverInfo.soft_max_players}`;
+
+      document.getElementById(`server-info-card-${id}-tab-${i}`).removeAttribute("disabled");
+    });
+  }
+
+  updateServerInfo(" {{- server_id -}} ", {{ server_addresses | jsonify -}} );
+</script>
+
+{% comment %} INFO: Unset our variables {% endcomment %}
+
+{%- assign server_name = null -%}
+{%- assign server_addresses = null -%}
+{%- assign server_links = null -%}
+{%- assign server_image = null -%}
+{%- assign server_description = null -%}
+{%- assign server_colors = null -%}

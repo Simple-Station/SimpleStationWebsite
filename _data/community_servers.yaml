@@ -1,31 +1,24 @@
-- name: Caldera
+- name: Caldera site CS-4578
   description: |
-    What's happening you mad lads??
-    uwu mommy
+    A wave-based survival server with an alternate storyline.
+    Fight against ravenous blackburns, aggravated rift-walkers, and other more non-euclidean entities.
+  image: /assets/img/servers/parkstation//banner.png
+  colors:
+    background: Salmon
+    text: Darkslategray
   links:
     - name: discord
-      link: https://discord.gg/8vJjJ2Q
-    - name: website
-      link: https://calderasite.gov
-      tooltip: Caldera website
-    - name: website
-      link: https://cald-erawiki.wik
-      tooltip: Caldera wiki
-    - name: github
-      link: https://github.com
-    - name: twitter
-      link: https://twitter.com
-    - name: reddit
-      link: https://reddit.com
+      link: https://discord.gg/s5ynU3hFCA
   addresses:
-    - Caldera-Nuclear.SimpleStation.org
-    - Caldera-Atomic.SimpleStation.org
-    - Caldera-Plasma.SimpleStation.org
-    - Caldera-Quantum.SimpleStation.org
+    - caldera-caldera.simplestation.org
 
 - name: SimpleStation
   description: |
     A simple station for simple people.
+  image: /assets/img/servers/simplestation/banner.png
+  colors:
+    background: '#5e2a7c'
+    text: white
   links:
     - name: facebook
       link: https://facebook.com
@@ -40,12 +33,20 @@
       link: "mailto: parkstation@simplestation.org"
       tooltip: SimpleStation email address
   addresses:
-    - SimpleStation-1.SimpleStation.org
+    - parkstation.simplestation.org
 
-- name: Space Station 13
+- name: CentCom Station
   description: |
-    The original Space Station 13.
+    Behind every great station is a great Central Command!
+    Play a part in the management machine that keeps Nanotrasen going,
+    with planned features to provide emergency support to stations
+    in distress. Based on Einstein Engines.
+  image: "https://timfalken.com/centcomstation/CentComStation.png"
+  colors:
+    background: '#00550d'
+    text: DarkGoldenRod
   links:
+    - name: discord
+      link: https://discord.gg/4n8qpbS2CW
   addresses:
-    - byond.spacestation13.com
-    - byond.spacestation13.org
+    - CentComStation.SimpleStation.org

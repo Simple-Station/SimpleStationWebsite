@@ -2,21 +2,56 @@
 title: Home
 layout: default
 ---
-<div class="container-fluid mb-5">
-    <div class="container-md text-center">
+
+<div class="container-fluid m-0" style="background: fixed center; background-image: url(/assets/img/space-bg.jpg); background-size: cover; background-position: center;">
+    <div class="container text-center" style="width: 45%;">
         <img src="/assets/img/banner.png" alt="simplestation banner" class="img-fluid">
     </div>
+</div>
 
+<hr class="m-0 mb-2" style="border: 0px; border-top: 4px; border-style: dashed;">
+
+<!-- Header -->
+<div class="container-md text-center pt-3">
+    <p style="font-size: large;">
+        SimpleStation is a <a class="link-info link-underline-opacity-0" href="https://store.steampowered.com/app/1255460/Space_Station_14/">Space Station 14</a>
+        community and toolkit intended to bring people together, and make the game a little more enjoyable.
+        <br>
+        We offer server hosting and browsing, development tools, an active community more than happy to help, and our own codebase
+        designed specifically to be ideal for forks and downstreams.
+        <br><br>
+        Below you'll find SimpleStation's collection of 'in-house' servers, each offering something different. For a larger collection, 
+        you can find our 'community servers' on the Community Servers page. If you're interested in getting hosted and becoming a Community Server yourself,  
+        or just learning more about development and contributing, feel free to message @<span style="color: rgb(236, 78, 236);">pspritechologist</span> on the SimpleStation Discord server!
+    </p>
+</div>
+
+<!-- Main site locations -->
+{% comment %} <img class="img-fluid" src="/assets/img/icon.png"> {% endcomment %}
+
+<!-- SimpleStation Servers -->
+<div class="container-fluid mb-5">
     <div class="container-fluid px-5 text-center">
         <div class="container-fluid px-5">
-            <hr class="border-2">
-            <h1 class="text-center">
-                Game Servers
-            </h1>
-            <hr class="border-2">
+            <hr class="border-3">
+            {% comment %} <hr class="border-2"> {% endcomment %}
+            <div class="row">
+                <div class="col">
+                    <hr class="d-lg-block d-none border-3">
+                </div>
+                <h1 class="text-center display-3 col-auto d-lg-block d-none">
+                    SimpleStation Servers
+                </h1>
+                <h1 class="text-center col-auto d-lg-none b-block">
+                    SimpleStation Servers
+                </h1>
+                <div class="col">
+                    <hr class="d-lg-block d-none border-3">
+                </div>
+            </div>
         </div>
 
-        <div class="row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-1 row-cols-sm-1 row-cols-1">
+        <div class="row row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-1">
 
             {%- assign servers = site.servers | sort: 'sort_priority', 'last' -%}
             {%- for server in servers -%}
@@ -31,13 +66,13 @@ layout: default
                     <button class="btn btn-secondary d-lg-none mb-3 btn-lg w-75 shadow"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="# {{- server_name -}} -desc"
+                        data-bs-target="#server-list- {{- server_name -}} -desc"
                         aria-expanded="false"
-                        aria-controls=" {{- server_name -}} -desc">
+                        aria-controls="server-list- {{- server_name -}} -desc">
                     </button>
 
-                    <div id=" {{- server_name -}} -desc" class="collapse d-lg-block">
-                        <p class="p-3 border-bottom border-end rounded rounded-5 server-description ss-bg-bg-alt shadow"> {{- server.server_description | rstrip |  newline_to_br | strip_newlines -}} </p>
+                    <div id="server-list- {{- server_name -}} -desc" class="collapse d-lg-block">
+                        <div class="p-3 border-bottom border-end rounded rounded-5 server-description ss-bg-bg-alt shadow"> {{- server.server_description | markdownify -}} </div>
                     </div>
                 </div>
                 

@@ -1,16 +1,16 @@
 ---
 sort_priority: 5
-simple_page: false
-server_addresses: [
-    parkstation.simplestation.org,
-    simplestation.simplestation.org
-]
+server:
+  name: Parkstation
+  addresses: [
+        parkstation.simplestation.org,
+        simplestation.simplestation.org
+    ]
 server_description: |
-    Parkstation is a serene and idyllic Space Station 14 server nestled amidst lush greenery and tranquil landscapes.
-    Step into a world where relaxation takes precedence over high-stakes action. Enjoy longer rounds that encourage a slower pace, allowing you to immerse yourself in the art of roleplay.
-    With a focus on creating a peaceful and harmonious environment, Parkstation offers a respite from the chaos of the cosmos. Engage in leisurely activities, tend to the station's gardens, or simply unwind and connect with fellow spacefarers.
-    
-    Soak in the serenity of Parkstation and discover a space station like no other.
+    Parkstation is built around longer rounds, slower roleplay, and a more relaxed atmosphere.
+    With a focus on sitcom-style character-centric roleplay, come enjoy Parkstation's lush stations and dedicated playerbase.  
+
+    ##### Why not give a go on the greener side of space?
 ---
 <div class="container-fluid text-center ss-bg-bg-alt pb-2 mb-0">
 
@@ -19,7 +19,7 @@ server_description: |
     </div>
 
     <h1>
-        Welcome to Parkstation! {{ page.simple_page }}
+        Welcome to Parkstation!
     </h1>
     <h4 class="ss-color-secondary">
         The greener side of space.
@@ -28,8 +28,9 @@ server_description: |
 
 <hr class="mt-0 m-4">
 
-<div class="float-end">
-    {% include server_info.html %}
+<div class="me-3 d-lg-block d-none" style="width: 20%; position: relative; float: right;">
+    {% assign server = page.server %}
+    {% include server_info_card.html %}
 </div>
 
 <button type="button" class="m-2 p-1 btn ss-btn-primary m-0 p-0 d-lg-none shadow" data-bs-toggle="collapse"
@@ -52,7 +53,7 @@ server_description: |
             </p>
         </div>
 
-        <div class="col-xl-6 col-lg-7 col-12 me-auto mb-5">
+        <div class="col-xl-6 col-lg-7 col-12 px-3">
             <p>
                 Parkstation was the first of the SimpleStation servers, and is managed by DEATHB4DEFEAT and
                 Pspritechologsit. The primary focus of the server is longer lasting rounds with slower, calmer
