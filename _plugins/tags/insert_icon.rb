@@ -13,7 +13,7 @@ module Jekyll
         end
 
         def render(context)
-            text = context[@input[0].strip] ? context[@input[0].strip] : @input[0].strip
+            text = context[@input[0].strip] ? context[@input[0].strip].downcase : @input[0].strip.downcase
             color = @input[1] ? context[@input[1].strip] ? context[@input[1].strip] : @input[1].strip : ""
 
             domain_format = context["site"][ICON_DOMAIN_KEY]

@@ -1,13 +1,11 @@
 <!-- In 'desktop' view, we have a full footer -->
 <!-- A gap to space out the bottom of the page -->
-<div style="height: 120px; width: 100%;"></div>
+{% comment %} <div style="height: 90px; width: 100%;"></div> {% endcomment %}
 
-<footer class="container-fluid ss-bg-bg-alt fixed-bottom d-none d-lg-block">
-  <div class="container-fluid">
-    <hr class="border-3 m-0">
-  </div>
+<footer class="container-fluid ss-bg-bg-alt sticky-bottom d-none d-xl-block" style="height: 80px;">
+  <hr class="border-3 m-0">
 
-  <div class="row align-items-center overflow-x-auto overflow-y-hidden text-nowrap">
+  <div class="row align-items-end overflow-x-auto overflow-y-hidden text-nowrap">
     <div class="col-1 float-start ms-3">
       <a href=" {%- link index.html -%} ">
         <img
@@ -20,14 +18,12 @@
     <div class="col float-end">
       <div class="text-end px-2 pb-1 mt-3 container-fluid">
         <p class="m-0">
-          SimpleStation is managed by Pspritechologist and DEATHB4DEFEAT, who may be contacted on     
-                    the
-          <a href=" {{- site.discord_link -}} " class="text-reset">SimpleStation Discord     
-                        server.</a>
+          SimpleStation is managed by Pspritechologist and DEATHB4DEFEAT, who may be contacted on the
+          <a href=" {{- site.discord_link -}} " class="text-reset">SimpleStation Discord server.</a>
         </p>
         <p class="m-0 small">
-          Thinking about maintaining a codebase? Don't know where to start with hosting?     
-                    Come message Pspritechologist and pitch your idea!
+          Thinking about maintaining a codebase? Don't know where to start with hosting?
+          Come message Pspritechologist and pitch your idea!
         </p>
       </div>
     </div>
@@ -35,7 +31,7 @@
 </footer>
 
 <!-- In 'mobile' view, we simply have a 'main page' button, and a 'Discord' button -->
-<footer class="m-0 p-2 container-fluid text-center row fixed-bottom d-lg-none justify-content-between" style="pointer-events: none;">
+<footer class="m-0 p-2 container-fluid text-center row fixed-bottom d-xl-none justify-content-between" style="pointer-events: none;">
   <div class="col">
     <button
       type="button"

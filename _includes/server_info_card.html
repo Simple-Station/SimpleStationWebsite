@@ -1,10 +1,37 @@
-<style>
-  .server-info-card-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted black; }
+<!-- A server info card. -->
+{%- unless included_server_info_card -%} 
+  {%- assign included_server_info_card = true -%}
 
-  .server-info-card-tooltip .server-info-card-tooltip-text { visibility: hidden; width: 200px; background-color: var(--color-background); color: #fff; text-align: center; padding: 5px; border-radius: 6px; bottom: 100%; left: 50%; margin-left: -120px; position: absolute; }
+  <script src="/assets/js/server_info.js"></script>
+  <script>
+    async function updateServerInfo(id, serverAddresses) {
+      serverAddresses.forEach(async (serverAddress, i) => {
+        const serverInfo = await getServerInfo(serverAddress);
 
-  .server-info-card-tooltip:hover .server-info-card-tooltip-text { visibility: visible; }
-</style>
+        const nameElement = document.getElementById(`server-info-card-${id}-${i}-name`);
+        const descriptionElement = document.getElementById(`server-info-card-${id}-${i}-description`);
+        const playersElement = document.getElementById(`server-info-card-${id}-${i}-players`);
+
+        nameElement.classList.remove("placeholder", "placeholder-wave");
+        playersElement.classList.remove("placeholder", "placeholder-wave");
+
+        nameElement.innerText = serverInfo.name;
+        descriptionElement.innerText = serverInfo.desc;
+        playersElement.innerText = `${serverInfo.players} / ${serverInfo.soft_max_players}`;
+
+        document.getElementById(`server-info-card-${id}-tab-${i}`).removeAttribute("disabled");
+      });
+    }
+  </script>
+
+  <style>
+    .server-info-card-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted black; }
+
+    .server-info-card-tooltip .server-info-card-tooltip-text { visibility: hidden; width: 200px; background-color: var(--color-background); color: #fff; text-align: center; padding: 5px; border-radius: 6px; bottom: 100%; left: 50%; margin-left: -120px; position: absolute; }
+
+    .server-info-card-tooltip:hover .server-info-card-tooltip-text { visibility: visible; }
+  </style>
+{%- endunless %}
 
 {% comment %} INFO: Set up our variables {% endcomment %}
 
@@ -64,40 +91,52 @@
 
       <div class="tab-content" style="color: #111f1f;">
         {% for address in server_addresses %}
-          <table
-            class="table-borderless tab-pane {% if forloop.first -%} show active {%- endif -%} "
-            id="server-info-card- {{- server_id -}} -tab-pane- {{- forloop.index0 -}} "
-            tabindex="0">
-            <tr>
-              <th>Name:&nbsp;&nbsp;</th>
-              <td>
-                <div class="server-info-card-tooltip">
-                  <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -name"> Placeholder Name </span>
-                  <span id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -description" class="server-info-card-tooltip-text">...</span>
-                </div>
-              </td>
-            </tr>
+          <div 
+            class="tab-pane {% if forloop.first -%} show active {%- endif -%}"
+            id="server-info-card- {{- server_id -}} -tab-pane- {{- forloop.index0 -}} "tabindex="0">
 
-            <tr>
-              <th>Address:&nbsp;&nbsp;</th>
-              <td>
-                <a href="ss14:// {{- address -}} ">
-                  <span class="text-break"> {{- address -}} </span>
-                </a>
-              </td>
-            </tr>
+            <table class="table-borderless tab-pane">
+              <tr>
+                <th>Name:&nbsp;&nbsp;</th>
+                <td>
+                  <div class="server-info-card-tooltip">
+                    <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -name"> Placeholder Name </span>
+                    <span id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -description" class="server-info-card-tooltip-text">...</span>
+                  </div>
+                </td>
+              </tr>
 
-            <tr>
-              <th>Players:&nbsp;&nbsp;</th>
-              <td>
-                <div class="badge bg-dark">
-                  <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -players"> 00 / 00 </span>
-                </div>
-              </td>
-            </tr>
+              {% comment %} <tr>
+                <th>Address:&nbsp;&nbsp;</th>
+                <td>
+                  <a href="ss14:// {{- address -}} ">
+                    <span class="text-break"> {{- address -}} </span>
+                  </a>
+                </td>
+              </tr> {% endcomment %}
 
-          </table>
+              <tr>
+                <th>Players:&nbsp;&nbsp;</th>
+                <td>
+                  <div class="badge bg-dark">
+                    <span class="placeholder placeholder-wave" id="server-info-card- {{- server_id -}} - {{- forloop.index0 -}} -players"> 00 / 00 </span>
+                  </div>
+                </td>
+              </tr>
 
+            </table>
+
+            <hr>
+            <div class="text-center">
+              <button
+                class="btn btn-primary"
+                type="button"
+                onclick="window.location.href=ss14:// {{- address -}} ">
+                Connect
+              </button>
+            </div>
+
+          </div>
         {%- endfor %}
 
       </div>
@@ -130,27 +169,7 @@
 
 </div>
 
-<script src="/assets/js/server_info.js"></script>
 <script>
-  async function updateServerInfo(id, serverAddresses) {
-    serverAddresses.forEach(async (serverAddress, i) => {
-      const serverInfo = await getServerInfo(serverAddress);
-
-      const nameElement = document.getElementById(`server-info-card-${id}-${i}-name`);
-      const descriptionElement = document.getElementById(`server-info-card-${id}-${i}-description`);
-      const playersElement = document.getElementById(`server-info-card-${id}-${i}-players`);
-
-      nameElement.classList.remove("placeholder", "placeholder-wave");
-      playersElement.classList.remove("placeholder", "placeholder-wave");
-
-      nameElement.innerText = serverInfo.name;
-      descriptionElement.innerText = serverInfo.desc;
-      playersElement.innerText = `${serverInfo.players} / ${serverInfo.soft_max_players}`;
-
-      document.getElementById(`server-info-card-${id}-tab-${i}`).removeAttribute("disabled");
-    });
-  }
-
   updateServerInfo(" {{- server_id -}} ", {{ server_addresses | jsonify -}} );
 </script>
 
