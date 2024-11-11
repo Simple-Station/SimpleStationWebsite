@@ -14,7 +14,11 @@ module Jekyll
 
         def render(context)
             text = context[@input[0].strip] ? context[@input[0].strip].downcase : @input[0].strip.downcase
-            color = @input[1] ? context[@input[1].strip] ? context[@input[1].strip] : @input[1].strip : ""
+            color = @input[1] \
+                ? context[@input[1].strip] \
+                    ? "/" + context[@input[1].strip] \
+                    : "/" + @input[1].strip \
+                : ""
 
             domain_format = context["site"][ICON_DOMAIN_KEY]
             if domain_format == nil
@@ -24,7 +28,7 @@ module Jekyll
             if domain_format.include?(ICON_REPLACEMENT)
                 domain = domain_format.sub(ICON_REPLACEMENT, text) + color
             else
-                domain = domain_format + text + "/" + color
+                domain = domain_format + text + color
             end
 
             found = false

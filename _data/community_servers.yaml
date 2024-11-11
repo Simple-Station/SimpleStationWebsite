@@ -1,0 +1,74 @@
+- name: Arcadis Station 
+  description: |
+   A fork with admeme intervention and flesh monsters! ...And other stuff too.
+  image: "https://github.com/The-Arcadis-Team/arc-station-14/blob/master/Resources/Textures/Logo/logo.svg?raw=true"
+  colors:
+    background: '#bb27cc'
+    text: '#2797ab'
+  links:
+    - name: discord
+      link: https://discord.gg/VZNTRQje9b
+  addresses:
+    - arcadis.node-shwartz.simplestation.org
+
+- name: Goob Station LRP
+  description: |
+    An SS14 server for those who enjoy admemes, silliness, and chaotic rounds.
+  image: "https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/icon/icon-256x256.png?raw=true"
+  colors:
+    background: '#D5D5D5'
+    text: '#4556BF'
+  links:
+    - name: discord
+      link: https://discord.gg/goobstation
+    - name: website
+      link: https://forums.goobstation.com
+      tooltip: Forums
+    - name: website
+      link: https://www.goobstation.com
+      tooltip: Website
+    - name: website
+      link: https://docs.goobstation.com
+      tooltip: Wiki
+  addresses:
+    - goobstation.simplestation.org
+
+- name: Weasel Station
+  description: |
+    A Modern interpretation of SAs original SS13, very early in development so don't expect much yet.
+  image: "https://github.com/The-Weasel-Flockmind/Weasel-Station/blob/master/Resources/Textures/Logo/icon/icon-128x128.png?raw=true"  
+  colors:
+    background: '#308c4f'
+    text: gold
+  links:
+    - name: discord
+      link: https://discord.gg/8ztKYJHFTu
+    - name: Github
+      link: https://github.com/The-Weasel-Flockmind/Weasel-Station
+  addresses: 
+    - weaselstation-eu.simplestation.org
+
+- name: 𝒢𝑜𝑜𝒷 𝒮𝓉𝒶𝓉𝒾𝑜𝓃 𝑀𝑅𝒫
+  description: |
+    Welcome to the illustrious Goob Station MRP, a resplendent sanctuary ordained solely for the most venerable and cultured denizens of our esteemed realm. 
+    Herein lies an experience that soars far beyond the trivial diversions of the common throng, a realm where excellence reigns supreme. 
+    Only those blessed with a rarefied and discerning palate for the highest echelons of station management, immersive roleplay, and the noble art of camaraderie shall be deemed worthy to grace our exalted assembly. 
+    We extend to you an invitation of the utmost grandeur—should you possess the noble fortitude and regal spirit to uphold the illustrious standards of true sophistication and majestic grandeur that befit this hallowed domain.
+  image: "https://raw.githubusercontent.com/Goob-Station/Goob-Station-MRP/refs/heads/main/Resources/Textures/Logo/icon/icon-256x256.png"
+  colors:
+    background: '#D5D5D5'
+    text: '#4556BF'
+  links:
+    - name: discord
+      link: https://discord.gg/goobstation
+    - name: website
+      link: https://forums.goobstation.com
+      tooltip: Forums
+    - name: website
+      link: https://www.goobstation.com
+      tooltip: Website
+    - name: website
+      link: https://docs.goobstation.com
+      tooltip: Wiki
+  addresses:
+    - goobstation.simplestation.org:25514

@@ -30,7 +30,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 discord_link: https://discord.com/invite/49KeKwXc8g
-icon_domain: https://cdn.simpleicons.org/{icon}/
+icon_domain: https://cdn.simpleicons.org/{icon}
 
 # Endpoints used when getting server information.
 # Any information gathered from these endpoints will be returned in a dictionary from the javascript function.
